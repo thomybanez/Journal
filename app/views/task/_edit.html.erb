@@ -1,0 +1,27 @@
+<div style="display:flex; flex-direction:column; margin-left: 70px">
+<h3 style="width: 200px;padding: 10px;margin: 0px;background-color: #036642; color: white; font-family: arial;">Edit Task</h3>
+
+<%= form_with scope: @categories_task_find, url: categories_tasks_update_path, method: :patch, html: { autocomplete: 'off' } do |form| %>
+<% if @categories_task_find.errors.any? %>
+  <ul>
+    <% @categories_task.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+    <div>
+        <%= form.label :name %><br/>
+        <%= form.text_field :name %>
+    </div>
+
+    <div>
+        <%= form.label :description %><br/>
+        <%= form.text_field :description %>
+     </div>
+
+  <div>
+    <%= form.submit "Save Changes" %>
+  </div>
+<% end %>
+</div>

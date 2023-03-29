@@ -1,0 +1,31 @@
+<div style="display:flex;">
+
+<div style="margin:0px; padding:0px;">
+<%= render partial: 'categories/index' %>
+</div>
+
+<div style="width: 500px; margin-left:5vw; padding:0px;">
+<h3 style="width: 500px;padding: 10px;margin: 0px;background-color: #036642; color: white; font-family: arial;"><%= @categories_find.name  %>'s Task</h3>
+  <table>
+    <thead>
+      <tr>
+        <th style="width:20%; padding:10px;">Name</th>
+        <th style="width:50%; padding:10px;">Description</th>
+        <th style="width:30%; padding:10px;">Date Created</th>
+      </tr>
+    </thead>
+    
+    <tbody>        
+      <% @categories_tasks.each do |task| %>        
+        <tr>          
+          <td style="text-align:center"><%= task.name %></td>
+          <td style="text-align:center"><%= task.description %></td>
+          <td style="text-align:center"><%= task.created_at.strftime('%m-%d-%Y') %></td>
+          <td><%= link_to "Edit",categories_tasks_edit_path(category_id: task.category_id, id: task.id), method: :edit %></td>
+          <td><%= button_to "Delete",categories_tasks_delete_path(category_id: task.category_id, id: task.id), method: :delete %></td>
+        </tr>      
+      <% end %>              
+    </tbody>    
+  </table>
+  <p style="text-align:center;margin: 20px 0px;"><%= link_to 'New Task', categories_tasks_new_path%></p>
+</div>

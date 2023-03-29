@@ -1,0 +1,27 @@
+<h3 style="width: 200px;padding: 10px;margin: 0px;background-color: #036642; color: white; font-family: arial;">Edit Category</h3>
+
+<%= form_with scope: @categories_find, url: categories_update_path(@categories_find), method: :patch, html: { autocomplete: 'off' } do |form| %>
+
+
+<% if @categories_find.errors.any? %>
+  <ul>
+    <% @categories_find.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+
+    <div>
+        <%= form.label :name %><br/>
+        <%= form.text_field :name %>
+    </div>
+
+    <!-- <div>
+        <%= form.label :user_id %><br/>
+        <%= form.text_field :user_id %>
+     </div> -->
+
+  <div>
+    <%= form.submit "Save Changes" %>
+  </div>
+<% end %>

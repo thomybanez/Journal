@@ -1,0 +1,23 @@
+<h3 style="width: 200px; padding: 10px;margin: 0px;background-color: #036642; color: white; font-family: arial;">Category</h3>
+<table style="width: 220px;">
+    <thead>
+        <tr>
+            <!-- <th>ID</th> -->
+            <th></th>
+            <!-- <th>User_ID</th> -->
+        </tr>
+    </thead>
+    <tbody>
+        <% @categories_all.each do |category| %>
+        <tr>        
+            <!-- <td><%= category.id  %></td> -->
+            <td style="color:black;width:100px;"><%= link_to category.name, categories_tasks_index_path(category.id) %></td>
+            <!-- <td><%= category.user_id %></td> -->
+            <td style="padding-left:20px;width:50px"><%= link_to 'Edit', categories_edit_path(category), method: :edit %></td>            
+            <td style="width:50px;"><%= button_to 'Delete', categories_delete_path(category.id), method: :delete%></td>
+            <!-- <td><%= category.id.inspect %></td> -->
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<p style="text-align:center; margin: 20px 0px; width: 200px;"><%= link_to("Add New Category", categories_new_path) %></p>

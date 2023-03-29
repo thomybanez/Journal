@@ -1,0 +1,22 @@
+<div style="display:flex; flex-direction:column; padding: 0 50px; margin-left: 20px;">
+<h3 style="width: 200px;padding: 10px;margin: 0px;background-color: #036642; color: white; font-family: arial;">New Task Adding</h3>
+<%= form_with scope: :task, url: categories_tasks_create_path, html:{autocomplete: 'off'} do |form| %>
+
+    <% if @categories_tasks_new.errors.any? %>
+    <ul>
+      <% @categories_tasks_new.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  
+  
+    <%= form.label :name %><br/>
+    <%= form.text_field :name %><br/>
+  
+    <%= form.label :description %><br/>
+    <%= form.text_field :description %><br/>
+  
+    <%= form.submit %>
+  <% end %>
+</div>

@@ -1,0 +1,22 @@
+<div style="display: flex; align-items:center; justify-content: center; height: 80vmin; width: 100%;">
+
+
+    <div style="align-items:center;">
+    <div style="margin: -50px;display:flex; justify-content:center;"><%= image_tag asset_path("Logo.png"), size: "160x160" %></div>
+    <h3 style="text-align:center;width: 200px;padding: 10px; margin: 30px 0px;background-color: #036642; color: white; font-family: arial;">Login</h3>
+
+        <div style="display:flex; justify-content:center;">
+        <%= form_with scope: :login, url: sessions_login_create_path, html:{autocomplete: 'off'} do |form| %>    
+            
+            <%= form.label "Username:" %><br>
+            <%= form.text_field :username %><br>
+
+            <%= form.label "Password:" %><br>
+            <%= form.password_field :password_digest %><br>
+
+            <%= form.submit "Log In"%>            
+        <% end %>
+        </div>
+        <h5 style="text-align:center;">Don't have an account? <%= link_to "Sign Up", sessions_signup_path %> now! </h5>
+    </div>
+</div>
