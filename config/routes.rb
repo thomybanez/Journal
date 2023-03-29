@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root to: "sessions#login"
 
   #Categories  
   get '/categories', to: 'categories#index', as: 'categories_index'
